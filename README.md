@@ -1,12 +1,14 @@
 ## Natural Language to SQL Query Execution Application
 
-![Logo](docs/images/init_page.PNG)Project Logo
-
 ### Overview
 
 The Natural Language to SQL Query Execution Application is a cutting-edge Python project that seamlessly blends the power of Natural Language Processing (NLP) with SQL database queries. This interactive application allows users, regardless of their SQL knowledge, to effortlessly execute SQL queries using intuitive and human-readable natural language inputs.
 
 ![Getting Started](docs/video/test.gif)
+
+### Why it's Useful
+
+The application is highly valuable as it enables individuals without SQL knowledge to effortlessly query the database using natural language. In this specific use case, consider a scenario where we have customer data, including the probability of purchase. A marketing professional can use plain English to query for customers with the highest likelihood of making a purchase. This intuitive approach empowers marketing teams to make data-driven decisions and target high-probability customer segments effectively. With real-time insights at their fingertips, marketers can focus on converting potential leads with ease and efficiency.
 
 ### Technology Stack
 
@@ -28,6 +30,7 @@ To launch the application, follow these steps:
 
 ```bash
 streamlit run yourpath/SQLNaturaLanguage/src/streamlit_app.py
+```
 
 ## Features
 
@@ -47,8 +50,6 @@ streamlit run yourpath/SQLNaturaLanguage/src/streamlit_app.py
 
 We welcome contributions to enhance the application's capabilities and usability. To contribute, please follow the guidelines in the `CONTRIBUTING.md` file.
 
-## License
 
-This project is licensed under the [MIT License](link_to_license).
 
 Let's make database interactions a breeze with the power of natural language and SQL integration! Feel free to share your feedback and ideas to improve the application further. Happy querying! 😎🚀
