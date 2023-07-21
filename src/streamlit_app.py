@@ -199,8 +199,8 @@ if __name__ == "__main__":
 
     # Connection with the database
     sql_engine = sql.create_engine("sqlite:///data/marketing.db")
-    # db = SQLDatabase(engine=sql_engine)
-    API_KEY = os.environ['OPENAI_API_KEY']
+
+    API_KEY = KEY_OPENAI
 
     app_class = App_queries_naturallanguage(sql_engine=sql_engine, API_KEY=API_KEY)
 

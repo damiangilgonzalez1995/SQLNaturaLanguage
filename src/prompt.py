@@ -8,3 +8,8 @@ PROMPT = """
 
 
 QUESTION_GENERATIVE_AI = "How many clients do I have?"
+
+
+KEY_OPENAI = "yourkey"
+
+# or you can use API_KEY = os.environ['OPENAI_API_KEY']
