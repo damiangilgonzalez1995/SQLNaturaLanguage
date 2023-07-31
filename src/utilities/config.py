@@ -1,3 +1,4 @@
+import os
 PROMPT = """
         Respond to the next answer. Keep in mind that the query that is created must be explicit at all times from which table the feature comes.
         Take in mind:
@@ -8,8 +9,7 @@ PROMPT = """
 
 
 QUESTION_GENERATIVE_AI = "How many clients do I have?"
-
-
-KEY_OPENAI = "yourkey"
+API_KEY = os.environ['OPENAI_API_KEY']
+# KEY_OPENAI = "yourkey"
 
 # or you can use API_KEY = os.environ['OPENAI_API_KEY']

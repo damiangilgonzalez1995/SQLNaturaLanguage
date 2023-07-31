@@ -1,11 +1,11 @@
 import streamlit as st
-from prompt import *
+from utilities.config import *
+# from ..generative_ai import SQLNaturaLanguage
+# from ..generative_ai import SQLNaturaLanguage
 from generative_ai import SQLNaturaLanguage
-import os
 # streamlit config show > project/.streamlit/config.toml
 import pandas as pd
 import sqlalchemy as sql
-
 
 class App_queries_naturallanguage():
     def __init__(self, sql_engine, API_KEY, temperature=0, model="gpt-3.5-turbo"):
@@ -27,6 +27,7 @@ class App_queries_naturallanguage():
         self.API_KEY = API_KEY
         self.temperature=temperature
         self.model=model
+        
 
 
     def _call_llm_sql(self, question=None, number_rows=10):
@@ -117,23 +118,24 @@ class App_queries_naturallanguage():
         """
         Display the database tables in different tabs.
 
-        This function shows an overview of the client_info and features tables.
+        This function shows the tables in different tabs
         """
 
         st.header("Data Base Tables")
 
-        tab1, tab2, tab3 = st.tabs(["Overview", "client_info" , "features"])
 
-        clients_df = pd.read_sql_table("client", self.conn)
-        model_df = pd.read_sql_table("data_predict", self.conn)
-        df_total = pd.concat([clients_df[["email"]], model_df[["prediction_label" , "prediction_score_0",  "prediction_score_1"]]], axis=1, join="inner")
+        obj = sql.MetaData()
+        obj.reflect(bind=self.conn)
 
-        with tab1:
-            st.dataframe(df_total)
-        with tab2:
-            st.dataframe(clients_df)
-        with tab3:
-            st.dataframe(model_df)
+        tables_list = list(obj.tables.keys())
+        tabs = st.tabs(tables_list)
+
+        for i, table in enumerate(tables_list):
+            with tabs[i]:
+                st.header(f"Table: {table}")
+                st.dataframe(pd.read_sql_table(table, self.conn))
+
+   
 
     def __error_show(self, chat_message):
         """
@@ -200,7 +202,7 @@ if __name__ == "__main__":
     # Connection with the database
     sql_engine = sql.create_engine("sqlite:///data/marketing.db")
 
-    API_KEY = KEY_OPENAI
+    API_KEY = API_KEY
 
     app_class = App_queries_naturallanguage(sql_engine=sql_engine, API_KEY=API_KEY)
 

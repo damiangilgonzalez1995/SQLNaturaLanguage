@@ -3,8 +3,7 @@ import sqlalchemy as sql
 from langchain.chat_models import ChatOpenAI
 from langchain.sql_database import SQLDatabase
 from langchain.chains import SQLDatabaseChain
-from prompt import *
-
+from utilities.config import *
 
 
 
@@ -33,7 +32,8 @@ class SQLNaturaLanguage():
         """
         Create and initialize the language model.
 
-        :return: The language model for natural language processing.
+        :return: The language model 
+        for natural language processing.
         :rtype: ChatOpenAI
         """
         llm = ChatOpenAI(
@@ -47,7 +47,8 @@ class SQLNaturaLanguage():
         """
         Create and initialize the SQLDatabaseChain.
 
-        :return: The SQLDatabaseChain for executing SQL queries based on natural language.
+        :return: The SQLDatabaseChain for executing 
+        SQL queries based on natural language.
         :rtype: SQLDatabaseChain
         """
         db_chain = SQLDatabaseChain.from_llm(
@@ -98,3 +99,16 @@ class SQLNaturaLanguage():
         return final_result
 
     
+
+   
+
+# sql_engine = sql.create_engine("sqlite:///data/marketing.db")
+
+# API_KEY = API_KEY
+
+# sqlnaturalanguage_object = SQLNaturaLanguage(sql_engine=sql_engine, API_KEY=API_KEY)
+
+# response = sqlnaturalanguage_object.execution(prompt="What are the best clients?")
+
+# print(response)
+

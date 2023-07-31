@@ -53,3 +53,32 @@ We welcome contributions to enhance the application's capabilities and usability
 
 
 Let's make database interactions a breeze with the power of natural language and SQL integration! Feel free to share your feedback and ideas to improve the application further. Happy querying! 😎🚀
+
+
+Structure
+
+```
+SQLNaturaLanguage
+├─ .streamlit
+│  └─ config.toml
+├─ data
+│  └─ marketing.db
+├─ docs
+│  ├─ images
+│  │  └─ init_page.PNG
+│  └─ video
+│     └─ test.gif
+├─ README.md
+├─ requirements.txt
+├─ src
+│  ├─ generative_ai.py
+│  ├─ streamlit_app.py
+│  ├─ utilities
+│  │  ├─ config.py
+│  │  ├─ __init__.py
+│  │  └─ __pycache__
+│  ├─ __init__.py
+│  └─ __pycache__
+└─ __pycache__
+
+```
